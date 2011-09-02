@@ -92,6 +92,12 @@ peers. These instructions use multicast for server discovery.
 - The data associated with the application should be loaded into SQLFire. This is accomplished 
 by using the files that can be found under jpetstore\db\sqlfire.
 
+- To get the project to generate all the Querydsl query types for the tables in the database, the
+needed step is outlined in pom.xml using the querydsl-maven-plugin. Since this plugin needs
+the sqlfireclient jar, this has to be manually added to the local Maven repository:
+mvn install:install-file -DgroupId=com.vmware.sqlfire -DartifactId=sqlfire-client -Dpackaging=jar 
+-Dversion=1.0.0-Beta -Dfile=[sqlfireclient_jar_location] -DgeneratePom=true
+
 - Start the Tomcat service and, after the startup procedure has finished, copy the application 
 war file created earlier to [Tomcat_DIR]\webapps. After the deployment has finished, open up 
 a browser and go to http://localhost:8080/jpetstore-1.0.0-SNAPSHOT

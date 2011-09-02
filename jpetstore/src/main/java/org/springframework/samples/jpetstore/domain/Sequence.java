@@ -1,4 +1,4 @@
-package org.springframework.samples.jpetstore.dao.ibatis;
+package org.springframework.samples.jpetstore.domain;
 
 import java.io.Serializable;
 

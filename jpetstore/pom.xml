@@ -19,7 +19,7 @@
 		<commons-io.version>1.3.2</commons-io.version>
 		<urlrewrite.version>3.1.0</urlrewrite.version>
 		<spring-js.version>2.0.7.RELEASE</spring-js.version>
-		<ibatis.version>2.3.4.726</ibatis.version>
+		<!-- <ibatis.version>2.3.4.726</ibatis.version> -->
 		<caucho.version>3.2.1</caucho.version>
 		<axis.version>1.4.0</axis.version>
 		<wsdl.version>1.6.1</wsdl.version>
@@ -102,6 +102,31 @@
 			<artifactId>urlrewritefilter</artifactId>
 			<version>${urlrewrite.version}</version>
 		</dependency>
+
+		<!-- Spring Data JDBC Extensions -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jdbc-core</artifactId>
+			<version>1.0.0.M2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Query DSL -->
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-sql</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
 		<!-- Spring Framework Project libraries -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -132,7 +157,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<!-- Spring JavaScript Project -->
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
@@ -146,12 +171,15 @@
 			</exclusions>
 		</dependency>
 
+		<!-- 
 		<dependency>
 			<groupId>org.apache.ibatis</groupId>
 			<artifactId>com.springsource.com.ibatis</artifactId>
 			<version>${ibatis.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		 -->
+		 
 		<dependency>
 			<groupId>com.caucho</groupId>
 			<artifactId>com.springsource.com.caucho</artifactId>
@@ -188,7 +216,7 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
-		<!-- Container-provided dependencies-->
+		<!-- Container-provided dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -217,7 +245,12 @@
 			<snapshots>
 				<updatePolicy>daily</updatePolicy>
 			</snapshots>
-		</repository>	
+		</repository>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Maven MILESTONE Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
 		<repository>
 			<id>standard repo</id>
 			<url>http://repo1.maven.org/maven2</url>
@@ -258,6 +291,33 @@
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.mysema.querydsl</groupId>
+				<artifactId>querydsl-maven-plugin</artifactId>
+				<version>2.2.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>export</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jdbcDriver>com.vmware.sqlfire.jdbc.ClientDriver</jdbcDriver>
+					<jdbcUrl>jdbc:sqlfire://localhost:1527</jdbcUrl>
+					<packageName>org.springframework.samples.jpetstore.generated.domain</packageName>
+					<targetFolder>${project.basedir}/src/main/java</targetFolder>
+					<schemaPattern>APP</schemaPattern>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.vmware.sqlfire</groupId>
+						<artifactId>sqlfire-client</artifactId>
+						<version>1.0.0-Beta</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
