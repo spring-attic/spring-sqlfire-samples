@@ -8,9 +8,10 @@
 			</a>
 		</td>
 		<td>
-			<a href="http://www.ibatis.com">
-				<img border="0" align="center" src="../images/poweredby.gif" alt="Powered by iBATIS"/>
-			</a>
+			<a href="http://www.querydsl.com">Powered by QueryDSL</a>
+		</td>
+		<td>
+			<a href="http://communities.vmware.com/community/vmtn/appplatform/vfabric_sqlfire">Powered by SQLFire</a>
 		</td>
 	</tr>
 </table>

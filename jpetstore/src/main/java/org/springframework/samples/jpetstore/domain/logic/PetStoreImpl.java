@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * 
  * <p>This object makes use of five DAO objects, decoupling it
  * from the details of working with persistence APIs. So
- * although this application uses iBATIS for data access,
+ * although this application uses Spring Data for data access,
  * a different persistence tool could be dropped in without
  * breaking this class.
  *

@@ -4,12 +4,11 @@
 
 @author Juergen Hoeller
 @author Andrei Stefan
-Based on Clinton Begin's JPetStore (http://www.ibatis.com).
 
 
 1. MOTIVATION
 
-Features a Spring-managed middle tier with iBATIS Database Layer as data access
+Features a Spring-managed middle tier with Spring Data and SQLFire as data access
 strategy, in combination with Spring's transaction and DAO abstractions.
 Can work with local JDBC transactions or JTA, with the latter on two databases.
 Uses the same data model and demo contents as the original JPetStore.
