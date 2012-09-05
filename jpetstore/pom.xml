@@ -76,8 +76,8 @@
 		</dependency> -->
 		<dependency>
 			<groupId>com.vmware.sqlfire</groupId>
-			<artifactId>sqlfire-client</artifactId>
-			<version>1.0.0-Beta</version>
+			<artifactId>sqlfireclient</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 		<!-- Composite-view & layout framework -->
 		<dependency>
@@ -268,7 +268,17 @@
 			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
 			<url>http://repository.springsource.com/maven/bundles/external</url>
 		</repository>
+		<repository>
+			<id>sqlfire-release</id>
+			<url>http://dist.gemstone.com/maven/release</url>
+		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>sqlfire-release</id>
+			<url>http://dist.gemstone.com/maven/release</url>
+		</pluginRepository>
+	</pluginRepositories>
 	<build>
 		<resources>
 			<resource>
@@ -313,8 +323,8 @@
 				<dependencies>
 					<dependency>
 						<groupId>com.vmware.sqlfire</groupId>
-						<artifactId>sqlfire-client</artifactId>
-						<version>1.0.0-Beta</version>
+						<artifactId>sqlfireclient</artifactId>
+						<version>1.0.2</version>
 					</dependency>
 				</dependencies>
 			</plugin>
