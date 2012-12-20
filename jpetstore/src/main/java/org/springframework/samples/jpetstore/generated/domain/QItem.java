@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QItem is a Querydsl query type for QItem
  */
-@Table("ITEM")
-@Schema("APP")
-public class QItem extends RelationalPathBase<QItem> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QItem extends com.mysema.query.sql.RelationalPathBase<QItem> {
 
     private static final long serialVersionUID = -1184032313;
 
@@ -42,22 +41,23 @@ public class QItem extends RelationalPathBase<QItem> {
 
     public final NumberPath<java.math.BigDecimal> unitcost = createNumber("UNITCOST", java.math.BigDecimal.class);
 
-    public final PrimaryKey<QItem> itemPk = createPrimaryKey(itemid);
+    public final com.mysema.query.sql.PrimaryKey<QItem> itemPk = createPrimaryKey(itemid);
 
-    public final ForeignKey<QSupplier> itemsupFk = createForeignKey(supplier, "SUPPID");
+    public final com.mysema.query.sql.ForeignKey<QSupplier> itemsupFk = createForeignKey(supplier, "SUPPID");
 
-    public final ForeignKey<QProduct> itemprodFk = createForeignKey(productid, "PRODUCTID");
+    public final com.mysema.query.sql.ForeignKey<QProduct> itemprodFk = createForeignKey(productid, "PRODUCTID");
 
     public QItem(String variable) {
-        super(QItem.class, forVariable(variable));
+        super(QItem.class, forVariable(variable), "APP", "ITEM");
     }
 
-    public QItem(BeanPath<? extends QItem> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QItem(Path<? extends QItem> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "ITEM");
     }
 
     public QItem(PathMetadata<?> metadata) {
-        super(QItem.class, metadata);
+        super(QItem.class, metadata, "APP", "ITEM");
     }
 
 }

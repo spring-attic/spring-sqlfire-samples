@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QAccount is a Querydsl query type for QAccount
  */
-@Table("ACCOUNT")
-@Schema("APP")
-public class QAccount extends RelationalPathBase<QAccount> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QAccount extends com.mysema.query.sql.RelationalPathBase<QAccount> {
 
     private static final long serialVersionUID = 2061303545;
 
@@ -44,18 +43,19 @@ public class QAccount extends RelationalPathBase<QAccount> {
 
     public final StringPath zip = createString("ZIP");
 
-    public final PrimaryKey<QAccount> accountPk = createPrimaryKey(userid);
+    public final com.mysema.query.sql.PrimaryKey<QAccount> accountPk = createPrimaryKey(userid);
 
     public QAccount(String variable) {
-        super(QAccount.class, forVariable(variable));
+        super(QAccount.class, forVariable(variable), "APP", "ACCOUNT");
     }
 
-    public QAccount(BeanPath<? extends QAccount> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QAccount(Path<? extends QAccount> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "ACCOUNT");
     }
 
     public QAccount(PathMetadata<?> metadata) {
-        super(QAccount.class, metadata);
+        super(QAccount.class, metadata, "APP", "ACCOUNT");
     }
 
 }

@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QSupplier is a Querydsl query type for QSupplier
  */
-@Table("SUPPLIER")
-@Schema("APP")
-public class QSupplier extends RelationalPathBase<QSupplier> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QSupplier extends com.mysema.query.sql.RelationalPathBase<QSupplier> {
 
     private static final long serialVersionUID = -50258304;
 
@@ -38,20 +37,21 @@ public class QSupplier extends RelationalPathBase<QSupplier> {
 
     public final StringPath zip = createString("ZIP");
 
-    public final PrimaryKey<QSupplier> supplierPk = createPrimaryKey(suppid);
+    public final com.mysema.query.sql.PrimaryKey<QSupplier> supplierPk = createPrimaryKey(suppid);
 
-    public final ForeignKey<QItem> _itemsupFk = createInvForeignKey(suppid, "SUPPLIER");
+    public final com.mysema.query.sql.ForeignKey<QItem> _itemsupFk = createInvForeignKey(suppid, "SUPPLIER");
 
     public QSupplier(String variable) {
-        super(QSupplier.class, forVariable(variable));
+        super(QSupplier.class, forVariable(variable), "APP", "SUPPLIER");
     }
 
-    public QSupplier(BeanPath<? extends QSupplier> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QSupplier(Path<? extends QSupplier> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "SUPPLIER");
     }
 
     public QSupplier(PathMetadata<?> metadata) {
-        super(QSupplier.class, metadata);
+        super(QSupplier.class, metadata, "APP", "SUPPLIER");
     }
 
 }

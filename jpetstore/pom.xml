@@ -8,25 +8,29 @@
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.version>3.0.7.RELEASE</spring.version>
 		<tiles.version>2.2.0</tiles.version>
 		<!-- <hsqldb.version>1.8.0.7</hsqldb.version> -->
 		<commons-fileupload.version>1.2.1</commons-fileupload.version>
 		<struts.version>1.2.9</struts.version>
 		<xml-rpc.version>1.1.0</xml-rpc.version>
 		<dbcp.version>1.2.2.osgi</dbcp.version>
-		<junit.version>4.6</junit.version>
+		<junit.version>4.10</junit.version>
 		<commons-io.version>1.3.2</commons-io.version>
 		<urlrewrite.version>3.1.0</urlrewrite.version>
-		<spring-js.version>2.0.7.RELEASE</spring-js.version>
+		<spring-js.version>2.3.0.RELEASE</spring-js.version>
 		<caucho.version>3.2.1</caucho.version>
 		<axis.version>1.4.0</axis.version>
 		<wsdl.version>1.6.1</wsdl.version>
 		<jstl.version>1.2</jstl.version>
-		<aspectj.version>1.6.5</aspectj.version>
+		<aspectj.version>1.7.0</aspectj.version>
 		<servlet-api.version>2.5</servlet-api.version>
 		<jsp.version>2.1</jsp.version>
-		<slf4j.version>1.6.1</slf4j.version>
+		<slf4j.version>1.6.6</slf4j.version>
+		<sqlfire.version>1.0.3</sqlfire.version>
+		<querydsl-maven-plugin.version>2.8.2</querydsl-maven-plugin.version>
+		<querydsl-sql.version>2.8.2</querydsl-sql.version>
+		<spring-data-jdbc.version>1.0.0.RELEASE</spring-data-jdbc.version>
 	</properties>
 	<dependencies>
 		<!-- Compile dependencies -->
@@ -76,8 +80,8 @@
 		</dependency> -->
 		<dependency>
 			<groupId>com.vmware.sqlfire</groupId>
-			<artifactId>sqlfire-client</artifactId>
-			<version>1.0.0-Beta</version>
+			<artifactId>sqlfireclient</artifactId>
+			<version>${sqlfire.version}</version>
 		</dependency>
 		<!-- Composite-view & layout framework -->
 		<dependency>
@@ -111,7 +115,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jdbc-core</artifactId>
-			<version>1.0.0.M2</version>
+			<version>${spring-data-jdbc.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -132,7 +136,7 @@
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-sql</artifactId>
-			<version>2.2.0</version>
+			<version>${querydsl-sql.version}</version>
 		</dependency>
 
 		<!-- Spring Framework Project libraries -->
@@ -268,7 +272,17 @@
 			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
 			<url>http://repository.springsource.com/maven/bundles/external</url>
 		</repository>
+		<repository>
+			<id>sqlfire-release</id>
+			<url>http://dist.gemstone.com/maven/release</url>
+		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>sqlfire-release</id>
+			<url>http://dist.gemstone.com/maven/release</url>
+		</pluginRepository>
+	</pluginRepositories>
 	<build>
 		<resources>
 			<resource>
@@ -295,7 +309,7 @@
 			<plugin>
 				<groupId>com.mysema.querydsl</groupId>
 				<artifactId>querydsl-maven-plugin</artifactId>
-				<version>2.2.0</version>
+				<version>${querydsl-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -306,6 +320,7 @@
 				<configuration>
 					<jdbcDriver>com.vmware.sqlfire.jdbc.ClientDriver</jdbcDriver>
 					<jdbcUrl>jdbc:sqlfire://localhost:1527</jdbcUrl>
+					<!-- <jdbcUrl>${sqlfire-host}:${sqlfire-port}</jdbcUrl> -->
 					<packageName>org.springframework.samples.jpetstore.generated.domain</packageName>
 					<targetFolder>${project.basedir}/src/main/java</targetFolder>
 					<schemaPattern>APP</schemaPattern>
@@ -313,8 +328,8 @@
 				<dependencies>
 					<dependency>
 						<groupId>com.vmware.sqlfire</groupId>
-						<artifactId>sqlfire-client</artifactId>
-						<version>1.0.0-Beta</version>
+						<artifactId>sqlfireclient</artifactId>
+						<version>${sqlfire.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>

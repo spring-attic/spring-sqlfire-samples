@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QSignon is a Querydsl query type for QSignon
  */
-@Table("SIGNON")
-@Schema("APP")
-public class QSignon extends RelationalPathBase<QSignon> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QSignon extends com.mysema.query.sql.RelationalPathBase<QSignon> {
 
     private static final long serialVersionUID = 587477520;
 
@@ -24,18 +23,19 @@ public class QSignon extends RelationalPathBase<QSignon> {
 
     public final StringPath username = createString("USERNAME");
 
-    public final PrimaryKey<QSignon> signonPk = createPrimaryKey(username);
+    public final com.mysema.query.sql.PrimaryKey<QSignon> signonPk = createPrimaryKey(username);
 
     public QSignon(String variable) {
-        super(QSignon.class, forVariable(variable));
+        super(QSignon.class, forVariable(variable), "APP", "SIGNON");
     }
 
-    public QSignon(BeanPath<? extends QSignon> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QSignon(Path<? extends QSignon> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "SIGNON");
     }
 
     public QSignon(PathMetadata<?> metadata) {
-        super(QSignon.class, metadata);
+        super(QSignon.class, metadata, "APP", "SIGNON");
     }
 
 }

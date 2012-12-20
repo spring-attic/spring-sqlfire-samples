@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QOrders is a Querydsl query type for QOrders
  */
-@Table("ORDERS")
-@Schema("APP")
-public class QOrders extends RelationalPathBase<QOrders> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QOrders extends com.mysema.query.sql.RelationalPathBase<QOrders> {
 
     private static final long serialVersionUID = 481174681;
 
@@ -70,18 +69,19 @@ public class QOrders extends RelationalPathBase<QOrders> {
 
     public final StringPath userid = createString("USERID");
 
-    public final PrimaryKey<QOrders> ordersPk = createPrimaryKey(orderid);
+    public final com.mysema.query.sql.PrimaryKey<QOrders> ordersPk = createPrimaryKey(orderid);
 
     public QOrders(String variable) {
-        super(QOrders.class, forVariable(variable));
+        super(QOrders.class, forVariable(variable), "APP", "ORDERS");
     }
 
-    public QOrders(BeanPath<? extends QOrders> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QOrders(Path<? extends QOrders> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "ORDERS");
     }
 
     public QOrders(PathMetadata<?> metadata) {
-        super(QOrders.class, metadata);
+        super(QOrders.class, metadata, "APP", "ORDERS");
     }
 
 }

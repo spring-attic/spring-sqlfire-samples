@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QInventory is a Querydsl query type for QInventory
  */
-@Table("INVENTORY")
-@Schema("APP")
-public class QInventory extends RelationalPathBase<QInventory> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QInventory extends com.mysema.query.sql.RelationalPathBase<QInventory> {
 
     private static final long serialVersionUID = 739216168;
 
@@ -24,18 +23,19 @@ public class QInventory extends RelationalPathBase<QInventory> {
 
     public final NumberPath<Integer> qty = createNumber("QTY", Integer.class);
 
-    public final PrimaryKey<QInventory> inventoryPk = createPrimaryKey(itemid);
+    public final com.mysema.query.sql.PrimaryKey<QInventory> inventoryPk = createPrimaryKey(itemid);
 
     public QInventory(String variable) {
-        super(QInventory.class, forVariable(variable));
+        super(QInventory.class, forVariable(variable), "APP", "INVENTORY");
     }
 
-    public QInventory(BeanPath<? extends QInventory> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QInventory(Path<? extends QInventory> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "INVENTORY");
     }
 
     public QInventory(PathMetadata<?> metadata) {
-        super(QInventory.class, metadata);
+        super(QInventory.class, metadata, "APP", "INVENTORY");
     }
 
 }

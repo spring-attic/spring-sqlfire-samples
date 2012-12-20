@@ -61,24 +61,25 @@ service and control the start/stop commands through the Tomcat Windows service.
 Also, add [Maven_dir]\bin to the PATH environment variable.
 
 - After downloading the SQLFire jar file, place it in the folder of your choice and 
-run the following command: java.exe -jar SQLFire10Beta_Installer.jar
-The installation will require to specify the directory where SQLFire will be installed 
-into. In the specified directory, SQLFire will be installed, by default, in SQLFire10Beta folder.
+run the following command: java.exe -jar vFabric_SQLFire_103_Installer.jar (the sample application
+was tested with the SQLFire 1.0.3 Professional version). The installation will require to specify 
+the directory where SQLFire will be installed into. In the specified directory, SQLFire will 
+be installed, by default, in vFabric_SQLFire_103 folder.
 
 - Agree with EULA license and continue with the installation.
 
 - For the application to be able to connect to SQLFire cluster, it needs the classes and 
 drivers SQLFire comes bundled with. For this, SQLFire jars have to be copied to Tomcat's 
-lib directory. Copy [SQLFire_DIR]\lib\gemfire.jar, [SQLFire_DIR]\lib\sqlfire.jar 
-and [SQLFire_DIR]\lib\sqlfireclient.jar to [Tomcat_DIR]\lib.
+lib directory. Copy [SQLFire_DIR]\lib\sqlfire.jar and [SQLFire_DIR]\lib\sqlfireclient.jar 
+to [Tomcat_DIR]\lib.
 
 - Under the directory where SQLFire folder was installed create another two directories: 
 server1 and server2.
 
 - Using sqlf command start two SQLFire server instances that should reside inside the folders 
 that were just created:
-sqlf server start -dir=server1 -client-port=1527 -mcast-port=12333
-sqlf server start -dir=server2 -client-port=1528 -mcast-port=12333
+sqlf server start -dir=../../server1 -client-port=1527 -mcast-port=12333
+sqlf server start -dir=../../server2 -client-port=1528 -mcast-port=12333
 The unique -client-port designations indicate that each server will listen for thin client 
 connections on different port (1527 and 1528, respectively). This is necessary because 
 both servers bind to the localhost address by default. The -mcast-port option indicates 
@@ -89,13 +90,15 @@ which each new SQLFire instance first connects, in order to discover the list of
 peers. These instructions use multicast for server discovery. 
 
 - The data associated with the application should be loaded into SQLFire. This is accomplished 
-by using the files that can be found under jpetstore\db\sqlfire.
+by using the files that can be found under jpetstore\db\sqlfire. Execute the following serie 
+of commands, one by one using the files that can be found under [SAMPLE_APPLICATION]\db\sqlfire:
+[SQLFire_DIR]\bin>sqlf.exe
+sqlf> protocol 'jdbc:sqlfire:';
+sqlf> connect '//localhost:1527' as myConnection;
+sqlf> run '[SAMPLE_APPLICATION]\db\sqlfire\jpetstore-sqlfire-schema.sql';
+sqlf> run '[SAMPLE_APPLICATION]\db\sqlfire\jpetstore-sqlfire-dataload.sql';
 
-- To get the project to generate all the Querydsl query types for the tables in the database, the
-needed step is outlined in pom.xml using the querydsl-maven-plugin. Since this plugin needs
-the sqlfireclient jar, this has to be manually added to the local Maven repository:
-mvn install:install-file -DgroupId=com.vmware.sqlfire -DartifactId=sqlfire-client -Dpackaging=jar 
--Dversion=1.0.0-Beta -Dfile=[sqlfireclient_jar_location] -DgeneratePom=true
+- Build the war file: "mvn package"
 
 - Start the Tomcat service and, after the startup procedure has finished, copy the application 
 war file created earlier to [Tomcat_DIR]\webapps. After the deployment has finished, open up 

@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QCategory is a Querydsl query type for QCategory
  */
-@Table("CATEGORY")
-@Schema("APP")
-public class QCategory extends RelationalPathBase<QCategory> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QCategory extends com.mysema.query.sql.RelationalPathBase<QCategory> {
 
     private static final long serialVersionUID = 1663558066;
 
@@ -26,20 +25,21 @@ public class QCategory extends RelationalPathBase<QCategory> {
 
     public final StringPath name = createString("NAME");
 
-    public final PrimaryKey<QCategory> categoryPk = createPrimaryKey(catid);
+    public final com.mysema.query.sql.PrimaryKey<QCategory> categoryPk = createPrimaryKey(catid);
 
-    public final ForeignKey<QProduct> _productcatFk = createInvForeignKey(catid, "CATEGORY");
+    public final com.mysema.query.sql.ForeignKey<QProduct> _productcatFk = createInvForeignKey(catid, "CATEGORY");
 
     public QCategory(String variable) {
-        super(QCategory.class, forVariable(variable));
+        super(QCategory.class, forVariable(variable), "APP", "CATEGORY");
     }
 
-    public QCategory(BeanPath<? extends QCategory> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QCategory(Path<? extends QCategory> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "CATEGORY");
     }
 
     public QCategory(PathMetadata<?> metadata) {
-        super(QCategory.class, metadata);
+        super(QCategory.class, metadata, "APP", "CATEGORY");
     }
 
 }

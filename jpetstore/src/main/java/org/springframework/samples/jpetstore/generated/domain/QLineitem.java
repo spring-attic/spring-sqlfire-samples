@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QLineitem is a Querydsl query type for QLineitem
  */
-@Table("LINEITEM")
-@Schema("APP")
-public class QLineitem extends RelationalPathBase<QLineitem> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QLineitem extends com.mysema.query.sql.RelationalPathBase<QLineitem> {
 
     private static final long serialVersionUID = -1492634181;
 
@@ -30,18 +29,19 @@ public class QLineitem extends RelationalPathBase<QLineitem> {
 
     public final NumberPath<java.math.BigDecimal> unitprice = createNumber("UNITPRICE", java.math.BigDecimal.class);
 
-    public final PrimaryKey<QLineitem> lineitemPk = createPrimaryKey(linenum, orderid);
+    public final com.mysema.query.sql.PrimaryKey<QLineitem> lineitemPk = createPrimaryKey(linenum, orderid);
 
     public QLineitem(String variable) {
-        super(QLineitem.class, forVariable(variable));
+        super(QLineitem.class, forVariable(variable), "APP", "LINEITEM");
     }
 
-    public QLineitem(BeanPath<? extends QLineitem> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QLineitem(Path<? extends QLineitem> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "LINEITEM");
     }
 
     public QLineitem(PathMetadata<?> metadata) {
-        super(QLineitem.class, metadata);
+        super(QLineitem.class, metadata, "APP", "LINEITEM");
     }
 
 }

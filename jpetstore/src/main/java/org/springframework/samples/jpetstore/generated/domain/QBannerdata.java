@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QBannerdata is a Querydsl query type for QBannerdata
  */
-@Table("BANNERDATA")
-@Schema("APP")
-public class QBannerdata extends RelationalPathBase<QBannerdata> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QBannerdata extends com.mysema.query.sql.RelationalPathBase<QBannerdata> {
 
     private static final long serialVersionUID = -1376272246;
 
@@ -24,18 +23,19 @@ public class QBannerdata extends RelationalPathBase<QBannerdata> {
 
     public final StringPath favcategory = createString("FAVCATEGORY");
 
-    public final PrimaryKey<QBannerdata> bannerdataPk = createPrimaryKey(favcategory);
+    public final com.mysema.query.sql.PrimaryKey<QBannerdata> bannerdataPk = createPrimaryKey(favcategory);
 
     public QBannerdata(String variable) {
-        super(QBannerdata.class, forVariable(variable));
+        super(QBannerdata.class, forVariable(variable), "APP", "BANNERDATA");
     }
 
-    public QBannerdata(BeanPath<? extends QBannerdata> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QBannerdata(Path<? extends QBannerdata> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "BANNERDATA");
     }
 
     public QBannerdata(PathMetadata<?> metadata) {
-        super(QBannerdata.class, metadata);
+        super(QBannerdata.class, metadata, "APP", "BANNERDATA");
     }
 
 }

@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QOrderstatus is a Querydsl query type for QOrderstatus
  */
-@Table("ORDERSTATUS")
-@Schema("APP")
-public class QOrderstatus extends RelationalPathBase<QOrderstatus> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QOrderstatus extends com.mysema.query.sql.RelationalPathBase<QOrderstatus> {
 
     private static final long serialVersionUID = 439243660;
 
@@ -28,18 +27,19 @@ public class QOrderstatus extends RelationalPathBase<QOrderstatus> {
 
     public final DatePath<java.sql.Date> timestamp = createDate("TIMESTAMP", java.sql.Date.class);
 
-    public final PrimaryKey<QOrderstatus> orderstatusPk = createPrimaryKey(linenum, orderid);
+    public final com.mysema.query.sql.PrimaryKey<QOrderstatus> orderstatusPk = createPrimaryKey(linenum, orderid);
 
     public QOrderstatus(String variable) {
-        super(QOrderstatus.class, forVariable(variable));
+        super(QOrderstatus.class, forVariable(variable), "APP", "ORDERSTATUS");
     }
 
-    public QOrderstatus(BeanPath<? extends QOrderstatus> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QOrderstatus(Path<? extends QOrderstatus> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "ORDERSTATUS");
     }
 
     public QOrderstatus(PathMetadata<?> metadata) {
-        super(QOrderstatus.class, metadata);
+        super(QOrderstatus.class, metadata, "APP", "ORDERSTATUS");
     }
 
 }

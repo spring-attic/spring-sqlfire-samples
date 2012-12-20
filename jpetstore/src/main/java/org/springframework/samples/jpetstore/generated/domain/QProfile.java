@@ -2,19 +2,18 @@ package org.springframework.samples.jpetstore.generated.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
-import com.mysema.query.sql.*;
-import java.util.*;
+import com.mysema.query.types.PathMetadata;
+import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
  * QProfile is a Querydsl query type for QProfile
  */
-@Table("PROFILE")
-@Schema("APP")
-public class QProfile extends RelationalPathBase<QProfile> {
+@Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
+public class QProfile extends com.mysema.query.sql.RelationalPathBase<QProfile> {
 
     private static final long serialVersionUID = -1365770635;
 
@@ -30,18 +29,19 @@ public class QProfile extends RelationalPathBase<QProfile> {
 
     public final StringPath userid = createString("USERID");
 
-    public final PrimaryKey<QProfile> profilePk = createPrimaryKey(userid);
+    public final com.mysema.query.sql.PrimaryKey<QProfile> profilePk = createPrimaryKey(userid);
 
     public QProfile(String variable) {
-        super(QProfile.class, forVariable(variable));
+        super(QProfile.class, forVariable(variable), "APP", "PROFILE");
     }
 
-    public QProfile(BeanPath<? extends QProfile> entity) {
-        super(entity.getType(), entity.getMetadata());
+    @SuppressWarnings("all")
+    public QProfile(Path<? extends QProfile> path) {
+        super((Class)path.getType(), path.getMetadata(), "APP", "PROFILE");
     }
 
     public QProfile(PathMetadata<?> metadata) {
-        super(QProfile.class, metadata);
+        super(QProfile.class, metadata, "APP", "PROFILE");
     }
 
 }
