@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+<deployment xmlns="https://xml.apache.org/axis/wsdd/" xmlns:java="https://xml.apache.org/axis/wsdd/providers/java">
 	<globalConfiguration>
 		<parameter name="adminPassword" value="admin"/>
 		<parameter name="sendXsiTypes" value="true"/>
@@ -23,7 +23,7 @@
 		<parameter name="allowedMethods" value="AdminService"/>
 		<parameter name="enableRemoteAdmin" value="false"/>
 		<parameter name="className" value="org.apache.axis.utils.Admin"/>
-		<namespace>http://xml.apache.org/axis/wsdd/</namespace>
+		<namespace>https://xml.apache.org/axis/wsdd/</namespace>
 	</service>
 	<service name="OrderService" provider="java:RPC">
 		<parameter name="allowedMethods" value="*"/>
