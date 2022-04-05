@@ -48,14 +48,14 @@ steps (these assume Tomcat 7 and JDK 6 are used):
 requires JDK 6.0 or later. The JDK 'bin' directory should be included in your PATH. 
 The JAVA_HOME environment variable should point to the JDK installation directory. 
 The JDK can be downloaded from: 
-http://www.oracle.com/technetwork/java/javase/downloads/index.html
+https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 - If not already installed, download and install Tomcat 7.0.xx. The steps outlined 
 below were based on testing on Windows XP SP3. I recommend installing the Windows 
 service and control the start/stop commands through the Tomcat Windows service.
 
 - If not already installed, download and install SQLFire 
-(http://communities.vmware.com/community/vmtn/appplatform/vfabric_sqlfire?view=overview).
+(https://communities.vmware.com/community/vmtn/appplatform/vfabric_sqlfire?view=overview).
 
 - If not already installed, download and install Maven (with version >= 2.0.8). 
 Also, add [Maven_dir]\bin to the PATH environment variable.
