@@ -1,10 +1,10 @@
 <!-- POM to run manager. 
      Ideally, we won't need a separate pom-manager.xml. However, since the use of two different ids and phase 
-     described at http://article.gmane.org/gmane.comp.java.maven-plugins.mojo.user/1307 doesn't seem to work 
+     described at https://article.gmane.org/gmane.comp.java.maven-plugins.mojo.user/1307 doesn't seem to work 
 	 (the configuration element is ignored), we have to resort to using a separate file. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+                             https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.samples.jpetstore</groupId>
 	<artifactId>org.springframework.samples.jpetstore.hsqldb.manager</artifactId>
